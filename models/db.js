@@ -1,14 +1,15 @@
 'use strict';
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 
-module.exports = ()=>{
-    mongoose.connect(' mongodb://127.0.0.1:27017/booking',{
+dotenv.config({path:'config.env'})
+const DATABASE = process.env.DATABASE_URL;
+
+    mongoose.connect(DATABASE,{
         useNewUrlParser : true,
-        usefindAndModify:true,
-        useUnifiedTopology:true,
-        useCreateIndex:true
     },(err)=>{
         if(!err){console.log('MongoDB connection succeeded ')
     }else{console.log('error in Database :'+err)}
     });
-}
+
+require('./admin.model');
