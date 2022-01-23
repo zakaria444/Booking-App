@@ -22,4 +22,4 @@ let adminSchema = new mongoos.Schema({
 
     }
 });
-mongoos.model('admin',adminSchema);
+module.exports=mongoos.model('admin',adminSchema);
