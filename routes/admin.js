@@ -40,13 +40,14 @@ router.post('/add',async (req,res)=>{
             const newadmin =await admin.findOne({email:req.body.email});
             // res.json(newadmin)
             if(newadmin.password==req.body.password){
-                res.json("Login succeede")
+                
+                res.json("Login Succeeded")
             }else{
-                res.json("login incorect")
+                res.status(401).json("login Incorect")//No autorisi
             }
     
         }catch(err){
-            res.status(400).json({message:err.message})
+            res.status(400).json({message:err.message})//Bad request
         }
         })
 
