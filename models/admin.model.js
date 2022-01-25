@@ -20,6 +20,11 @@ let adminSchema = new mongoos.Schema({
         type:Number,
         required :true
 
+    },
+    role:{
+        type:String,
+        required :true
+
     }
 });
 module.exports=mongoos.model('admin',adminSchema);
